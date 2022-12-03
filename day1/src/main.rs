@@ -1,11 +1,9 @@
-use std::fs;
 use itertools::Itertools;
 
 fn main() {
     println!("Running Day 1");
 
-    let input = fs::read_to_string("input.txt")
-        .expect("Something went wrong reading the file");
+    let input = include_str!("../input.txt");
 
     let elves: Vec<u32> = input
         .split("\n\n")
