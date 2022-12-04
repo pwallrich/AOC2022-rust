@@ -58,24 +58,6 @@ fn run_part2(input: &str) {
     .fold(0, |old, new| {
         old + new
     });
-    
-    // .collect::<Vec<&[&str]>>();
-        // .map(|rucksack| {
-        //      return rucksack.split_at(rucksack.len() / 2)
-        // })
-        // .map(|rucksack| -> (HashSet<char>, HashSet<char>) {
-        //     (HashSet::from_iter(rucksack.0.chars()), HashSet::from_iter(rucksack.1.chars()))
-        // })
-        // .map(|rucksack| {
-        //     rucksack.0.intersection(&rucksack.1).copied().next()
-        // })
-        // .flatten()
-        // .map(|duplicate| {
-        //     get_priority(duplicate)
-        // })
-        // .fold(0, |old, new| {
-        //     old + new
-        // });
 
     println!("part2: {:?}", result);
 }
