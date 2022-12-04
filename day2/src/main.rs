@@ -1,13 +1,16 @@
+use std::env;
 use std::collections::HashMap;
 
 fn main() {
-    println!("Running Day 2");
+    let args: Vec<String> = env::args().collect();
 
-    let input = include_str!("../input.txt");
-
-//     let input = r#"A Y
-// B X
-// C Z"#;
+    let use_test_input = args.contains(&String::from("test_input"));
+    
+    let input = if use_test_input {
+            "A Y\nB X\nC Z"
+    } else {
+        include_str!("../input.txt")
+    };
 
     run_part1(input);
     run_part2(input);

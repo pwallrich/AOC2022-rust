@@ -1,16 +1,18 @@
 use regex::Regex;
+use std::env;
 
 fn main() {
-    println!("Running Day 1");
+    let args: Vec<String> = env::args().collect();
 
-    let input = include_str!("../input.txt");
+    let use_test_input = args.contains(&String::from("test_input"));
     
-//     let input = r#"2-4,6-8
-// 2-3,4-5
-// 5-7,7-9
-// 2-8,3-7
-// 6-6,4-6
-// 2-6,4-8"#;
+    let input = if use_test_input {
+            "2-4,6-8\n2-3,4-5\n5-7,7-9\n2-8,3-7\n6-6,4-6\n2-6,4-8"
+    } else {
+        include_str!("../input.txt")
+    };
+    
+    println!("Running Day 4. Using Test input: {}", use_test_input);
 
     let re = Regex::new(r"(\d*)-(\d*),(\d*)-(\d*)").unwrap();
 

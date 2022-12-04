@@ -1,9 +1,16 @@
+use std::env;
 use itertools::Itertools;
 
 fn main() {
-    println!("Running Day 1");
+    let args: Vec<String> = env::args().collect();
 
-    let input = include_str!("../input.txt");
+    let use_test_input = args.contains(&String::from("test_input"));
+    
+    let input = if use_test_input {
+            "1000\n2000\n3000\n\n4000\n\n5000\n6000\n\n7000\n8000\n9000\n\n10000"
+    } else {
+        include_str!("../input.txt")
+    };
 
     let elves: Vec<u32> = input
         .split("\n\n")

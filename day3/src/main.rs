@@ -1,17 +1,19 @@
-use std::collections::{HashMap, HashSet};
+use std::env;
 use itertools::Itertools;
+use std::collections::{HashSet};
 
 fn main() {
-    println!("Running Day 2");
+    let args: Vec<String> = env::args().collect();
 
-    let input = include_str!("../input.txt");
-
-//     let input = r#"vJrwpWtwJgWrhcsFMMfFFhFp
-// jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
-// PmmdzqPrVvPwwTWBwg
-// wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
-// ttgJtRGJQctTZtZT
-// CrZsJsPPZsGzwwsLwLmpwMDw"#;
+    let use_test_input = args.contains(&String::from("test_input"));
+    
+    let input = if use_test_input {
+            "vJrwpWtwJgWrhcsFMMfFFhFp\njqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\nPmmdzqPrVvPwwTWBwg\nwMqvLMZHhHMvwLHjbvcjnnSBnvTQFn\nttgJtRGJQctTZtZT\nCrZsJsPPZsGzwwsLwLmpwMDw"
+    } else {
+        include_str!("../input.txt")
+    };
+    
+    println!("Running Day 3. Using Test input: {}", use_test_input);
 
     run_part1(input);
     run_part2(input);
